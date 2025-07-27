@@ -63,13 +63,21 @@ namespace Student_Record_Management
             {
                 MessageBox.Show("Enter a valid numeric ID.");
             }
+            txtSearchID.Clear();
         }
         // Display all students in sorted order when "Display All" is clicked
         private void btnDisplayAll_Click(object sender, EventArgs e)
         {
-            listBoxStudents.Items.Clear();  // Clear previous items
+            listBoxStudents.Items.Clear(); // Clear previous items
 
-            var allStudents = bst.InOrderTraversal();  // Get sorted list
+            var allStudents = bst.InOrderTraversal(); // Get sorted list of students
+
+            // Check if there are no students in the list
+            if (allStudents == null || allStudents.Count == 0)
+            {
+                MessageBox.Show("There are currently no students to display.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             // Add each student to the ListBox
             foreach (var student in allStudents)
