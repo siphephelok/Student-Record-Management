@@ -29,6 +29,13 @@ namespace Student_Record_Management
         {
             try
             {
+                // Validate ID length
+                if (txtID.Text.Length == 0 || txtID.Text.Length > 3)
+                {
+                    MessageBox.Show("Student ID must be between 1 and 3 digits.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ClearFields();
+                }
+
                 // Parse input fields
                 int id = int.Parse(txtID.Text);
                 string name = txtName.Text;
@@ -40,29 +47,38 @@ namespace Student_Record_Management
                 // Insert student into BST
                 bst.Insert(student);
 
-                MessageBox.Show("Student added successfully.");
+                MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
             }
             catch
             {
-                MessageBox.Show("Invalid input. Please check your entries.");
+                MessageBox.Show("Invalid input. Please check your entries.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // Search student by ID when "Search" button is clicked
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtSearchID.Text, out int id))
+            string input = txtSearchID.Text.Trim();
+
+            // Check if input is numeric and 1–3 digits
+            if (!int.TryParse(input, out int id) || input.Length == 0 || input.Length > 3)
             {
-                Student found = bst.Search(id);
-                if (found != null)
-                    MessageBox.Show("Found: " + found.ToString());
-                else
-                    MessageBox.Show("Student not found.");
+                MessageBox.Show("Please enter a valid numeric ID with up to 3 digits.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSearchID.Clear();
+                return; // Exit early if input is invalid
+            }
+
+            // Perform search
+            Student found = bst.Search(id);
+            if (found != null)
+            {
+                MessageBox.Show("Found: " + found.ToString(), "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Enter a valid numeric ID.");
+                MessageBox.Show("Student not found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
             txtSearchID.Clear();
         }
         // Display all students in sorted order when "Display All" is clicked
