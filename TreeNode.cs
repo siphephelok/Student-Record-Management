@@ -12,15 +12,15 @@ namespace Student_Record_Management
         public Student Data { get; set; }
 
         // Pointers to left and right child nodes
-        public TreeNode Left { get; set; }
-        public TreeNode Right { get; set; }
+        public TreeNode Left { get; set; } // Left child (smaller ID)
+        public TreeNode Right { get; set; } // Right child (larger ID)
 
         // Constructor that assigns the student data
         public TreeNode(Student student)
         {
-            Data = student;
-            Left = null;
-            Right = null;
+            Data = student;  // Store the student in this node
+            Left = null; // No left child yet
+            Right = null; // No right child yet
         }
     }
 }

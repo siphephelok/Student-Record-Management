@@ -124,7 +124,7 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(971, 176);
+            this.btnSearch.Location = new System.Drawing.Point(1040, 176);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(126, 43);
             this.btnSearch.TabIndex = 8;
@@ -156,9 +156,9 @@
             // txtSearchID
             // 
             this.txtSearchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchID.Location = new System.Drawing.Point(639, 181);
+            this.txtSearchID.Location = new System.Drawing.Point(502, 181);
             this.txtSearchID.Name = "txtSearchID";
-            this.txtSearchID.Size = new System.Drawing.Size(288, 38);
+            this.txtSearchID.Size = new System.Drawing.Size(463, 38);
             this.txtSearchID.TabIndex = 11;
             this.txtSearchID.Text = "\r\n";
             // 

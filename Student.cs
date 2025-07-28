@@ -24,7 +24,7 @@ namespace Student_Record_Management
         // ToString() for easy display in ListBox
         public override string ToString()
         {
-            return $"ID: {ID}, Name: {Name}, Mark: {Mark}";
+            return $"ID: {ID}, Name: {Name}, Mark: {Mark}"; // This makes it easy to show student info as a string
         }
     }
 }

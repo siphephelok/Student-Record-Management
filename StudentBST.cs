@@ -11,10 +11,10 @@ namespace Student_Record_Management
         // Root node of the BST
         private TreeNode root;
 
-        // Public method to insert a student into the BST
+        // Method to insert a student into the BST
         public void Insert(Student student)
         {
-            root = InsertRec(root, student);
+            root = InsertRec(root, student); // Start the recursive insert
         }
 
         // Recursive method for inserting a new node in correct position
@@ -25,38 +25,38 @@ namespace Student_Record_Management
 
             // Navigate left or right depending on the student ID
             if (student.ID < node.Data.ID)
-                node.Left = InsertRec(node.Left, student);
+                node.Left = InsertRec(node.Left, student); // Go left
             else if (student.ID > node.Data.ID)
-                node.Right = InsertRec(node.Right, student);
+                node.Right = InsertRec(node.Right, student); // Go right
             // Duplicate IDs are ignored
 
-            return node;
+            return node; // Return the updated tree
         }
 
         // Search for a student by ID
         public Student Search(int id)
         {
-            return SearchRec(root, id);
+            return SearchRec(root, id); // Start search from root
         }
 
         // Recursive search helper
         private Student SearchRec(TreeNode node, int id)
         {
             if (node == null)
-                return null;
+                return null; // Reached bottom, not found
             if (id == node.Data.ID)
-                return node.Data;
+                return node.Data; // Found the student
             else if (id < node.Data.ID)
-                return SearchRec(node.Left, id);
+                return SearchRec(node.Left, id); // Go left
             else
-                return SearchRec(node.Right, id);
+                return SearchRec(node.Right, id); // Go right
         }
 
         // Returns a sorted list of all students using in-order traversal
         public List<Student> InOrderTraversal()
         {
-            List<Student> result = new List<Student>();
-            InOrderRec(root, result);
+            List<Student> result = new List<Student>(); // Empty list
+            InOrderRec(root, result); // Fill it
             return result;
         }
         
